@@ -8,13 +8,13 @@ Resource-intensive applications typically need to increase the default limit to 
 ## Get the current file limit
 
 ```rust
-let cur_limit: usize = filelimit::get();
+let cur_limit: usize = file_limit::get();
 ```
 
 ## Get the number of maximum files that can be opened
 
 ```rust
-let max_limit = filelimit::max();
+let max_limit = file_limit::max();
 match max_limit {
   Limit::Val(v) => ..., //v is the upper bound represented as a usize
   Limit::Inf => ..., //infinity repesents that there is no upper bound
@@ -24,7 +24,7 @@ match max_limit {
 ## Set the file limit to the maximum upper-bound
 
 ```rust
-let new_lim = filelimit::set_to_max().unwrap();
+let new_lim = file_limit::set_to_max().unwrap();
 ```
 
 If there is no upper-bound (set to infinity) then it will scale it by factor of 8.
