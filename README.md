@@ -7,13 +7,13 @@ Resource-intensive applications typically need to increase the default limit to 
 
 ## Get the current file limit
 
-```
+```rust
 let cur_limit: usize = filelimit::get();
 ```
 
 ## Get the number of maximum files that can be opened
 
-```
+```rust
 let max_limit = filelimit::max();
 match max_limit {
   Limit::Val(v) => ..., //v is the upper bound represented as a usize
@@ -23,7 +23,7 @@ match max_limit {
 
 ## Set the file limit to the maximum upper-bound
 
-```
+```rust
 let new_lim = filelimit::set_to_max().unwrap();
 ```
 
