@@ -1,4 +1,4 @@
-# limits
+# file_limit
 
 A utility library to retrieve and set the file limits for unix-based processes. "Everything is a file"; thus a file can represent network sockets, pipes, file on a file-system, etc.
 Resource-intensive applications typically need to increase the default limit to the maximum. It is also beneficial for low-latency applications to increase the file limit to the maximum number and pre-allocate a data structure to hold the FDs to minimize memory allocations. 
