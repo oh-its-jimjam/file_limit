@@ -1,6 +1,6 @@
 [package]
 name = "file_limit"
-version = "0.0.1"
+version = "0.2"
 authors = ["James Perry <james.austin.perry@gmail.com>"]
 license = "MIT"
 repository = "https://github.com/jamperry/file_limit"
