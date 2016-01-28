@@ -1,0 +1,10 @@
+[package]
+name = "file_limit"
+version = "0.0.1"
+authors = ["James Perry <james.austin.perry@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/jamperry/file_limit"
+description = "utility functions to retrieve and set OS file limits"
+
+[dependencies]
+libc = "0.2.6"
