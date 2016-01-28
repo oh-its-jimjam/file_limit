@@ -1,7 +1,12 @@
+#![crate_name = "file_limit"]
+#![cfg(linux)]
+
 extern crate libc;
 
 use std::io::{Error, Result};
 
+// private fn to get the kernal struct for file limits
+#[inline]
 fn get_limit() -> Result<libc::rlimit> {
     unsafe {
         let mut rlim = libc::rlimit{rlim_cur: 0, rlim_max: 0}; 
@@ -12,6 +17,7 @@ fn get_limit() -> Result<libc::rlimit> {
     }
 }
 
+#[inline]
 pub fn get() -> Result<usize> {
     match get_limit() {
         Ok(rlim) => Ok(rlim.rlim_cur as usize), 
@@ -24,6 +30,7 @@ pub enum MaxLimit {
     NoLimit,
 }
 
+#[inline]
 pub fn max() -> Result<MaxLimit> {
     let rlim = match get_limit() {
         Ok(rlim) => rlim,
@@ -36,6 +43,7 @@ pub fn max() -> Result<MaxLimit> {
     }
 }
 
+#[inline]
 pub fn set_to_max() -> Result<usize> {
     let mut r = match get_limit() {
         Ok(l) => l,
