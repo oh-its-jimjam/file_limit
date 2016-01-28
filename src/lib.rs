@@ -1,5 +1,5 @@
 #![crate_name = "file_limit"]
-#![cfg(linux)]
+#![cfg(unix)]
 
 extern crate libc;
 
